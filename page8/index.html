@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Joshua Lande &middot; Data Science, Apache Pig, Hadoop, Blogging, Tweets, Astrophysics
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47674613-1', 'joshualande.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <body>
+
+    <div class="container content">
+      <div class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Joshua Lande</a>
+
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/about/">About</a></small>
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/archive/">Archive</a></small>
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/atom.xml">Feed</a></small>
+          
+
+        </h3>
+      </div>
+
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/redirect-urls-jekyll-github">
+        How to Redirect URLs in Jekyll Using Github Pages and the jekyll-redirect-from Plugin
+      </a>
+    </h1>
+
+    <span class="post-date">02 Apr 2014</span>
+
+    <p>When changing the permalink structure of your blog or migrating
+your blog from one blogging platform to another, you often want to
+change the permalink structure of your blog but keep the old
+URLs and have them redirect to the new pages.
+This will allow you to preserve your 
+Google search rankings, tweet history, SEO, etc.</p>
+
+<p>Fortunately, Github Pages makes this really
+easy because they
+<a href="https://github.com/blog/1797-repository-metadata-and-plugin-support-for-github-pages">recently</a>
+enabled support for the
+<a href="https://github.com/jekyll/jekyll-redirect-from">jekyll-redirect-from</a>
+plugin.  To get these URLs to redirect, all you have to do is:</p>
+
+<ul>
+  <li>
+    <p>Install jekyll-redirect-from. To do that, I ran the command</p>
+
+    <p><code>yaml
+gem install jekyll-redirect-from --source http://rubygems.org
+</code></p>
+  </li>
+  <li>
+    <p>Include this plugin in Jekyll by adding to your <code>_config.yml</code>:</p>
+
+    <p><code>yaml
+gems:
+  - jekyll-redirect-from
+</code></p>
+  </li>
+  <li>
+    <p>Add to the YAML metadata of the post a line describing the old URL which should
+be redirected.
+For example, if the
+original URL for this post was
+<a href="joshualande.com/2014/04/02/minimal-urls-jekyll">joshualande.com/2014/04/02/minimal-urls-jekyll</a>,
+then we could redirect that URL to the new URL 
+by adding a line to the YAML metadata of this blog post:</p>
+
+    <p><code>yaml
+redirect_from: "/2014/04/02/minimal-urls-jekyll/"
+</code></p>
+
+    <p>jekyll-redirect-from is further documented <a href="https://help.github.com/articles/redirects-on-github-pages">here</a>.</p>
+  </li>
+  <li>
+    <p>Finally, if you use <a href="http://disqus.com/">DISQUS</a> to host comments
+on your blog, you will have to explicitly tell Jekyll that you
+changed the URLs for your blog posts.  DISQUS provide an easy URL
+Mapper which is documented
+<a href="http://help.disqus.com/customer/portal/articles/912757-url-mapper">here</a>.</p>
+  </li>
+</ul>
+
+<p>If you have any questions or comments, please post them below. If
+you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=http://www.joshualande.com/redirect-urls-jekyll-github&amp;text=How to Redirect URLs in Jekyll Using Github Pages and the jekyll-redirect-from Plugin&amp;via=joshualande" target="_blank">
+  share it with your followers</a> 
+or 
+<a href="https://twitter.com/joshualande">
+  follow me on Twitter</a>!</p>
+
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page9/">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page7/">Newer</a>
+    
+  
+</div>
+
+
+      
+
+
+
+      <div class="footer">
+        <p>
+          &copy; 2015. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

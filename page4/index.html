@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Joshua Lande &middot; Data Science, Apache Pig, Hadoop, Blogging, Tweets, Astrophysics
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47674613-1', 'joshualande.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <body>
+
+    <div class="container content">
+      <div class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Joshua Lande</a>
+
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/about/">About</a></small>
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/archive/">Archive</a></small>
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/atom.xml">Feed</a></small>
+          
+
+        </h3>
+      </div>
+
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/database-normalization">
+        Design a Better SQL Database With Database Normalization
+      </a>
+    </h1>
+
+    <span class="post-date">18 Apr 2014</span>
+
+    <p><em>This is the first post in a <a href="/data-science-sql">series of posts</a>
+about doing data science with SQL.</em></p>
+
+<p>In this post, I will go over the benefits of laying out data in a
+relational database like <a href="http://en.wikipedia.org/wiki/SQL">SQL</a>.
+By way of a simple example, I will then go over the basics of how
+to design a robust database and the concept of <a href="http://en.wikipedia.org/wiki/Database_normalization">database
+normalization</a>.  These
+topics are essential in being able to design and interact effectively
+with databases.</p>
+
+<h2 id="a-simple-example-recipes-database">A Simple Example Recipes Database</h2>
+
+<p>We will introduce these topics through a simple example.  Suppose
+that we wanted to store information about recipes in a cookbook.</p>
+
+<p>The fundamental building block of SQL databases are two-dimensional
+tables. This may seem like a limited design. But as you will
+see, this limitation will become incredibly powerful.</p>
+
+<p>For our cookbook, each recipe will have a name. So we can begin by
+creating a table of recipe names.  Our <code>recipes</code> table will be:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>recipe_id</th>
+      <th>recipe_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Tacos</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Tomato Soup</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Grilled Cheese</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We associate a unique ID with each recipe so that we can connect
+rows in this table to rows in other tables (more on this soon).</p>
+
+<p>Next, we need a table listing all the ingredients.
+To make later examples more interesting,
+we will also also assume that each ingredient
+has a price. Our <code>ingredients</code> table is:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ingredient_id</th>
+      <th>ingredient_name</th>
+      <th>ingredient_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Beef</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lettuce</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Tomatoes</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Taco Shell</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Cheese</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Milk</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Bread</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Again, the ingredient IDs are to connect rows in this table to other
+tables.  Finally, we need some way of listing what ingredients are
+in each recipe.  Although we might naturally want to put this
+information into the <code>recipe</code> table, it is advantageous to use a third
+table to store this information.</p>
+
+<p>Although it might seem cumbersome at first, a straightforward way
+to store this information is to make another table listing all
+(<code>recipe_id</code>, <code>ingredient_id</code>) pairs. I will discuss
+in the next section why this is advantageous.</p>
+
+<p>To make the later examples more interesting, we will also
+list an amount of each ingredient required in each recipe.
+Our <code>recipe_ingredients</code> table is:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>recipe_id</th>
+      <th>ingredient_id</th>
+      <th>amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>6</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Of course, this example is very simplified.  We could imagine that
+a real database, like the one curated by <a href="http://yummly.com">yummly.com</a>,
+would have a lot more information (more tables, more columns, and
+more rows).  But this example should be sufficient to allow for
+interesting examples later.</p>
+
+<p>Before we move on, I will mention two bits of terminology common
+to databases.  A <a href="http://en.wikipedia.org/wiki/Database_schema">schema</a>
+is the structure of the tables in the database. For our example,
+our three tables make up the scheme of our recipes database.</p>
+
+<p>A <a href="http://en.wikipedia.org/wiki/SQL#Queries">query</a> in SQL is a command
+which retrieves data from a database. For example, we might
+want to query the number of recipes in our database.</p>
+
+<h2 id="how-to-normalize-your-database">How to Normalize Your Database</h2>
+
+<p>At this point, you should be confused about why we laid out the
+database across three tables and why we need all these strange IDs.
+And finally, you might be wondering why each recipe-ingredient pair
+has to take up an entire row in the <code>recipe_ingredients</code> table.</p>
+
+<p>This leads us to the concept of <a href="http://en.wikipedia.org/wiki/Database_normalization">database
+normalization</a>.
+Database normalization is the process of designing a database so
+that every piece of information shows up in only one place in the
+database.  This is the most important concept for designing effective
+databases.</p>
+
+<p>In principle, we could directly cram all
+three tables into one larger table:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>recipe_name</th>
+      <th>ingredient_name</th>
+      <th>amount</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tacos</td>
+      <td>Beef</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Tacos</td>
+      <td>Lettuce</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This would be a denormalized table. </p>
+
+<p>But although it is easier to read, it is very fragile.  For example,
+at some point in the future somebody might decide that they wanted
+the tacos to be made of Chicken instead of beef. In the process of
+updating the table, they might accidently change the name <code>Tacos</code>
+to <code>Taco</code> in only one of the rows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>recipe_name</th>
+      <th>ingredient_name</th>
+      <th>amount</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Taco</td>
+      <td>Beef</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Tacos</td>
+      <td>Lettuce</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A this point, our table would no longer be self consistent and this
+could break all sorts of downstream queries.  Similar problems could
+happen if our code crashed after updating half of the
+rows. In addition, this schema also allows for the same ingredient to have
+different prices in different recipes which shouldn’t be possible.</p>
+
+<p>Finding and fixing these sorts of bugs is costly, time consuming,
+and frustrating. The benefit of having small tables linked by IDs
+is that the IDs can be assumed to never change since they are only
+used inside the database. On the other hand, important information
+like names only show up in one place, avoiding inconsistencies and
+allowing for easier and less-error-prone modifications.</p>
+
+<p>Another benefit of database normalization is that it scales nicely
+to adding new kinds of information. For example, suppose we wanted
+to store additional information about the steps needed to build the
+recipe.  We could just create a new table which linked back to the
+recipes by their ID. The <code>recipe_instructions</code> table might look
+like:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>recipe_id</th>
+      <th>step</th>
+      <th>step_description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>Put the Taco Shells in the oven</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>Cook the beef in a pan on medium</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Being able to add new data without changing the existing
+tables is much less error prone and potentially costly.</p>
+
+<p>Finally, if the extra data only existed for a limited number of
+rows, this would be another win because we wouldn’t have to store
+empty rows for all the missing data.</p>
+
+<h2 id="why-do-tables-have-to-be-flat">Why Do Tables Have to be Flat?</h2>
+
+<p>The limitation that SQL tables have to be flat may at first seem
+very strange.  Although it should be clear that there is probably
+some way to flattening out any data structure to fit into flat
+tables, it is probably unclear why this is better than just allowing
+nested data.</p>
+
+<p>Scripting languages like <a href="https://www.ruby-lang.org/">ruby</a>,
+<a href="http://www.python.org/">python</a>, or <a href="http://www.perl.org/">perl</a>
+make it especially easy to nest data using dictionaries.  In python,
+a common design for our recipes data might look like:</p>
+
+<p><code>python
+recipes = {
+  "Tacos": ("Beef", "Lettuce", "Tomatoes", 
+            "Taco Shell", "Cheese"),
+  "Tomato Soup": ("Tomatoes", "Milk"),
+  "Grilled Cheese": ("Cheese", "Bread")
+}
+</code></p>
+
+<p>Using this dictionary, it would be easy to find all the
+ingredients for a particular recipe:</p>
+
+<p><code>python
+soup_ingredients = recipes["Tomato Soup"]
+</code></p>
+
+<p>But the downside of this is that it would be expensive to ask other
+questions about the data. For example, finding all the recipes with
+a given ingredient would require looking through each recipe:</p>
+
+<p><code>python
+tomato_recipes = [i for i in recipes.keys() \
+            if "Tomatoes" in recipes[i]]
+</code></p>
+
+<p>We could build a different data structure to make this other query
+easier:</p>
+
+<p><code>python
+recipes = {
+    "Beef": ("Tacos"),
+    "Lettuce": ("Tacos"),
+    "Tomatoes": ("Tacos", "Tomato Soup"),
+    "Taco Shell": ("Tacos"),
+    "Cheese": ("Tacos", "Grilled Cheese"),
+    "Milk": ("Tomato Soup")
+    "Bread": ("Grilled Cheese")
+}
+</code></p>
+
+<p>But this structure would make the first query more difficult!</p>
+
+<p>Although it seems strange at first, flattening out the tables ensures
+that our data layout is not biased towards (or against) any particular
+kind of query.  Instead, the designers of SQL optimized their
+database to perform all kinds of different queries against flat
+tables efficiently.  There is a good chance that what we will want
+to query tomorrow is different from today, so this is a huge
+advantage.</p>
+
+<p>As a final note, some newer databases like
+<a href="http://www.mongodb.com/">MongoDB</a> natively support storing nested
+<a href="http://json.org/">JSON</a>-like data structures.  Despite the caveats
+mentioned above, in real-world situations sometimes this is a
+necessity.</p>
+
+<p><em>In the <a href="/install-mysql">next post</a> 
+in this <a href="/data-science-sql">series of posts</a>, 
+I will explain how to install MySQL on your local machine to test out 
+SQL commands.</em></p>
+
+<p>If you have any questions or comments, please post them below. If
+you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=http://www.joshualande.com/database-normalization&amp;text=Design a Better SQL Database With Database Normalization&amp;via=joshualande" target="_blank">
+  share it with your followers</a> 
+or 
+<a href="https://twitter.com/joshualande">
+  follow me on Twitter</a>!</p>
+
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page5/">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page3/">Newer</a>
+    
+  
+</div>
+
+
+      
+
+
+
+      <div class="footer">
+        <p>
+          &copy; 2015. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

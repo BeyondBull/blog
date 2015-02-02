@@ -10,212 +10,241 @@
 
   <title>
     
-      BeyondBull.net 
+      Joshua Lande &middot; Data Science, Apache Pig, Hadoop, Blogging, Tweets, Astrophysics
     
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/poole.css">
-  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47674613-1', 'joshualande.com');
+  ga('send', 'pageview');
+
+</script>
+
 
   <body>
 
     <div class="container content">
-
-		      <div class="masthead">
+      <div class="masthead">
         <h3 class="masthead-title">
-          <a href="/" title="Home">BeyondBull Blog</a>
+          <a href="/" title="Home">Joshua Lande</a>
+
           
               &nbsp;&nbsp;&nbsp;<small><a href="/about/">About</a></small>
           
               &nbsp;&nbsp;&nbsp;<small><a href="/archive/">Archive</a></small>
           
-              &nbsp;&nbsp;&nbsp;<small><a href="/atom.xml">RSS</a></small>
+              &nbsp;&nbsp;&nbsp;<small><a href="/atom.xml">Feed</a></small>
           
-		  
+
         </h3>
       </div>
 
-
-
-
-			<div class="posts">
+      <div class="posts">
   
   <div class="post">
     <h1 class="post-title">
-	    
-      <a href="/2014/01/01/example-content/">
-        Example content
+      <a href="/create-tables-sql">
+        How to Create Tables and Insert Data into SQL Databases
       </a>
-        
     </h1>
-    <span class="post-date">01 Jan 2014</span>
-    <div class="message">
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-</div>
 
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+    <span class="post-date">28 Apr 2014</span>
 
-<blockquote>
-  <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
+    <p><em>This is the third post in a <a href="/data-science-sql">series of posts</a>
+about doing data science with SQL. The 
+<a href="/install-mysql">previous post</a>
+covered the steps required to install MySQL on on your
+local machine.</em></p>
 
-<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+<p>In this post, I will go over the commands required to set up the
+example recipe database from the 
+<a href="/database-normalization">first post</a> in this series.  By the end
+of this post, you will understand how to create new tables and you
+will have a working database to run SQL queries on!</p>
 
-<h2 id="inline-html-elements">Inline HTML elements</h2>
+<h2 id="creating-the-recipes-database-in-sql">Creating the Recipes Database in SQL</h2>
 
-<p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+<p>To create the recipes database, we first need to create a database
+to work in. We can do this with the command:</p>
 
-<ul>
-  <li><strong>To bold text</strong>, use <code>&lt;strong&gt;</code>.</li>
-  <li><em>To italicize text</em>, use <code>&lt;em&gt;</code>.</li>
-  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code>&lt;abbr&gt;</code>, with an optional <code>title</code> attribute for the full phrase.</li>
-  <li>Citations, like <cite>— Mark otto</cite>, should use <code>&lt;cite&gt;</code>.</li>
-  <li><del>Deleted</del> text should use <code>&lt;del&gt;</code> and <ins>inserted</ins> text should use <code>&lt;ins&gt;</code>.</li>
-  <li>Superscript <sup>text</sup> uses <code>&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code>&lt;sub&gt;</code>.</li>
-</ul>
+<p><code>sql
+CREATE DATABASE recipes_database;
+</code></p>
 
-<p>Most of these elements are styled by browsers with few modifications on our part.</p>
+<p>Having multiple databases is useful to separate different
+projects. We can select our database with the command:</p>
 
-<h2 id="heading">Heading</h2>
+<p><code>sql
+USE recipes_database;
+</code></p>
 
-<p>Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+<h2 id="creating-tables-in-sql">Creating Tables in SQL</h2>
 
-<h3 id="code">Code</h3>
+<p>To create the <code>recipes</code> table inside <code>recipes_database</code>, we can use
+the <code>CREATE TABLE</code> command:</p>
 
-<p>Cum sociis natoque penatibus et magnis dis <code>code element</code> montes, nascetur ridiculus mus.</p>
+<p>```sql
+CREATE TABLE recipes (
+  recipe_id INT NOT NULL,
+  recipe_name VARCHAR(30) NOT NULL,
+  PRIMARY KEY (recipe_id),
+  UNIQUE (recipe_name)
+);</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console</span>
+<p>INSERT INTO recipes 
+    (recipe_id, recipe_name) 
+VALUES 
+    (1,”Tacos”),
+    (2,”Tomato Soup”),
+    (3,”Grilled Cheese”);
+```</p>
 
-<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments</span>
-<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;return a + b&quot;</span><span class="p">);</span>
+<p>The <code>PRIMARY KEY</code> forces every row to be a unique value.  This stops
+several recipes from having the same ID.  In addition, we use the
+<code>UNIQUE</code> keyword to ensure that no two recipes have the same name.</p>
 
-<span class="c1">// Call the function</span>
-<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="c1">// &gt; 8</span></code></pre></div>
+<p>You will notice that different columns can have different types.
+Recipe IDs are integers and recipe names are variable length arrays
+of characters.  <code>VARCHAR(30)</code> means that the strings can store up
+to 30 characters.  Other common types include <code>FLOAT</code>, <code>DOUBLE</code>,
+<code>DATE</code>, and <code>TIMESTAMP</code>. There is additional documented on types
+<a href="http://dev.mysql.com/doc/refman/5.0/en/data-types.html">here</a>.</p>
 
-<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+<p>Next, we can create the ingredients table:</p>
 
-<h3 id="gists-via-github-pages">Gists via GitHub Pages</h3>
+<p>```sql
+CREATE TABLE ingredients (
+  ingredient_id INT NOT NULL, 
+  ingredient_name VARCHAR(30) NOT NULL,
+  ingredient_price INT NOT NULL,
+  PRIMARY KEY (ingredient_id),<br />
+  UNIQUE (ingredient_name)
+);</p>
 
-<p>Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.</p>
+<p>INSERT INTO ingredients
+    (ingredient_id, ingredient_name, ingredient_price)
+VALUES 
+    (1, “Beef”, 5),
+    (2, “Lettuce”, 1),
+    (3, “Tomatoes”, 2),
+    (4, “Taco Shell”, 2),
+    (5, “Cheese”, 3),
+    (6, “Milk”, 1),
+    (7, “Bread”, 2);
+```</p>
 
-<script src="https://gist.github.com/5555251.js?file=gist.md"> </script>
+<p>Note that we do not ensure uniqueness of <code>ingredient_price</code> because
+multiple recipes can have the same price.</p>
 
-<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
+<p>Finally, we can create the recipe-ingredient-mapping table:</p>
 
-<h3 id="lists">Lists</h3>
+<p>```sql
+CREATE TABLE recipe_ingredients (
+  recipe_id int NOT NULL, 
+  ingredient_id INT NOT NULL, 
+  amount INT NOT NULL,
+  PRIMARY KEY (recipe_id,ingredient_id)
+);</p>
 
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>INSERT INTO recipe_ingredients 
+    (recipe_id, ingredient_id, amount)
+VALUES
+    (1,1,1),
+    (1,2,2),
+    (1,3,2),
+    (1,4,3),
+    (1,5,1),
+    (2,3,2),
+    (2,6,1),
+    (3,5,1),
+    (3,7,2);
+```</p>
 
-<ul>
-  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-  <li>Donec id elit non mi porta gravida at eget metus.</li>
-  <li>Nulla vitae elit libero, a pharetra augue.</li>
-</ul>
+<p>The last row says, for example, that the recipe with an ID of 3
+(“Grilled Cheese”) has an amount 2 of the ingredient with ID 7
+(“Bread”).</p>
 
-<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+<p>Notice that our <code>PRIMARY KEY</code> is for recipe ID and ingredient ID pairs.
+We require only that the combination is unique because
+each recipe can have a particular ingredient only once.</p>
 
-<ol>
-  <li>Vestibulum id ligula porta felis euismod semper.</li>
-  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-</ol>
+<h2 id="autoincrement-ids">AUTO_INCREMENT IDs</h2>
 
-<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+<p>There is an <code>AUTO_INCREMENT</code> command which can be used to let SQL
+automatically pick the recipe and ingredient IDs to ensure uniqueness.
+Using this command, we can created the same <code>recipes</code> table in a
+less error-prone way:</p>
 
-<dl>
-  <dt>HyperText Markup Language (HTML)</dt>
-  <dd>The language used to describe and define the content of a Web page</dd>
+<p>```sql
+CREATE TABLE recipes (
+  recipe_id INT NOT NULL AUTO_INCREMENT,
+  recipe_name VARCHAR(30) NOT NULL,
+  PRIMARY KEY (recipe_id),
+  UNIQUE (recipe_name)
+);</p>
 
-  <dt>Cascading Style Sheets (CSS)</dt>
-  <dd>Used to describe the appearance of Web content</dd>
+<p>INSERT INTO recipes 
+    (recipe_name) 
+VALUES 
+    (“Tacos”),
+    (“Tomato Soup”),
+    (“Grilled Cheese”);
+```</p>
 
-  <dt>JavaScript (JS)</dt>
-  <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
+<h2 id="browse-the-tables">Browse the Tables</h2>
 
-<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<p>To browse the tables in the database, we can run the <code>SELECT</code>
+command from the command line:</p>
 
-<h3 id="images">Images</h3>
+<p><code>
+mysql&gt;   SELECT * 
+    -&gt;     FROM recipes
+    -&gt; ORDER BY recipe_id;
++-----------+----------------+
+| recipe_id | recipe_name    |
++-----------+----------------+
+|         1 | Tacos          |
+|         2 | Tomato Soup    |
+|         3 | Grilled Cheese |
++-----------+----------------+
+3 rows in set (0.00 sec)
+</code></p>
 
-<p>Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.</p>
+<p>We can also use the content tab in Sequel Pro to graphically browse
+the tables:</p>
 
-<p><img src="http://placehold.it/800x400" alt="placeholder" title="Large example image" />
-<img src="http://placehold.it/400x200" alt="placeholder" title="Medium example image" />
-<img src="http://placehold.it/200x200" alt="placeholder" title="Small example image" /></p>
+<p><img src="/assets/sequel_pro_content_tab.jpg" alt="Sequel Pro Content Tab" /></p>
 
-<h3 id="tables">Tables</h3>
+<p><em>In the <a href="/filters-joins-aggregations">next post</a>
+in this 
+<a href="/data-science-sql">series of posts</a>, 
+I will go over the basics of quering for data in a SQL database.</em></p>
 
-<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p>If you have any questions or comments, please post them below. If
+you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=http://www.joshualande.com/create-tables-sql&amp;text=How to Create Tables and Insert Data into SQL Databases&amp;via=joshualande" target="_blank">
+  share it with your followers</a> 
+or 
+<a href="https://twitter.com/joshualande">
+  follow me on Twitter</a>!</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Upvotes</th>
-      <th>Downvotes</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td>Totals</td>
-      <td>21</td>
-      <td>23</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <td>Alice</td>
-      <td>10</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td>Bob</td>
-      <td>4</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Charlie</td>
-      <td>7</td>
-      <td>9</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
-
-<hr />
-
-<p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-	    
-      <a href="/2013/12/31/whats-jekyll/">
-        What's Jekyll?
-      </a>
-        
-    </h1>
-    <span class="post-date">31 Dec 2013</span>
-    <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/jekyll/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
-
-<blockquote>
-  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
-</blockquote>
-
-<p>It’s an immensely useful tool. Find out more by <a href="https://github.com/jekyll/jekyll">visiting the project on GitHub</a>.</p>
 
   </div>
   
@@ -223,7 +252,7 @@
 
 <div class="pagination">
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="/page3/">Older</a>
   
   
     
@@ -233,13 +262,15 @@
 </div>
 
 
-		      <div class="footer">
+      
+
+
+
+      <div class="footer">
         <p>
           &copy; 2015. All rights reserved.
         </p>
       </div>
-
-	  
     </div>
 
   </body>

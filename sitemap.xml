@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.joshualande.com</loc>
+    <lastmod>2015-02-02T14:36:42-05:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/filters-joins-aggregations</loc>
+      
+        <lastmod>2014-08-14T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/create-tables-sql</loc>
+      
+        <lastmod>2014-04-28T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/install-mysql</loc>
+      
+        <lastmod>2014-04-25T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/database-normalization</loc>
+      
+        <lastmod>2014-04-18T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/data-science-sql</loc>
+      
+        <lastmod>2014-04-17T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/read-write-json-apache-pig</loc>
+      
+        <lastmod>2014-04-16T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/short-urls-jekyll</loc>
+      
+        <lastmod>2014-04-03T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/redirect-urls-jekyll-github</loc>
+      
+        <lastmod>2014-04-02T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/cogroup-in-pig</loc>
+      
+        <lastmod>2014-03-27T00:00:00-04:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/cube-rollup-pig-data-science</loc>
+      
+        <lastmod>2014-02-11T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/jekyll-github-pages-poole</loc>
+      
+        <lastmod>2014-02-03T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/searching-pulsar-wind-nebulae-kiapc</loc>
+      
+        <lastmod>2013-02-14T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/physics-marlboro-college-vermont</loc>
+      
+        <lastmod>2013-02-14T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/health-impact-solar-particle-events-sstorm</loc>
+      
+        <lastmod>2013-02-14T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/calibrating-powder-diffraction-data-ssrl</loc>
+      
+        <lastmod>2013-02-14T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/simulating-deep-lens-survey-davis</loc>
+      
+        <lastmod>2013-02-12T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+    <url>
+      <loc>http://www.joshualande.com/pointlike-fitting-package</loc>
+      
+        <lastmod>2013-02-01T00:00:00-05:00</lastmod>
+      
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+    </url>
+  
+  
+  <url>
+    <loc>http://www.joshualande.com/404/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/about/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/archive/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/atom.xml</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page2/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page3/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page4/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page5/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page6/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page7/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page8/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page9/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page10/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page11/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page12/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page13/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page14/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page15/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page16/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.joshualande.com/page17/</loc>
+    
+      <lastmod>2015-02-02</lastmod>
+    
+    
+      <changefreq>monthly</changefreq>
+    
+    
+      <priority>0.3</priority>
+    
+  </url>
+  
+</urlset>
