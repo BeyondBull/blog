@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------------------ */
 body {
 	background: #57534C;
-  color: #F1F1F0;
+  color: #F1F1F1;
 }
 a {
   color: #75A3BF;
@@ -12,10 +12,12 @@ a {
 }
 p {
 	font-family: 'Crimson Text', serif;
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 main {
 	float: left;
+	width: 90%;
+	margin: 0 5%;
 }
 
 
@@ -25,31 +27,34 @@ main {
 ------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------ */
 #page-header {
-	background: #F1F1F0;
+	background: #F1F1F1;
 	float: left;
 	width: 100%;	
-	margin: 13px 0;
+	margin: 15px 0;
 	border-bottom: #000 solid 3px;
 	border-top: #000 solid 3px;
 }
 .site-title {
-	text-align: center;
-	padding: 5px;
-	margin: 0;
-}
-.site-title a {
+	margin: 7px 0;
+	padding-left: 5%;
+	width: 100%;
 	color: #57534C;
 	font-weight: 300;
+}
+.site-title small {
+	font-size: .4em;
 }
 .icon-nav {
 	background: #75A3BF;
 	border-top: #7e0909 solid 5px;
 	float: right;
 	width: 100%;
+	padding-right: 3%;
 }
 .icon-nav a {
 	float: right;
-	margin: 0;
+	padding-right: 15px;
+	padding-top: 2px;
 }
 .social-icon {
 	width: 20px;
@@ -58,16 +63,6 @@ main {
 @media screen and (min-width: 480px) {
 
 	.site-title {
-		text-align: left;
-		width: 40%;
-		float: left;
-		padding: 18px 10px 5px 10px;
-	}
-	.sub-page-nav {
-		float: right;
-		width: 40%;
-		text-align: right;
-		padding: 18px 10px 5px 10px;
 	}
 }
 
@@ -118,7 +113,7 @@ main {
 .pagination-item {
   display: block;
   padding: 1rem;
-  border: 1px solid #eee;
+  border-top: 1px solid #f1f1f1;
 }
 .pagination-item:first-child {
   margin-bottom: -1px;
@@ -126,5 +121,5 @@ main {
 
 /* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
-  background-color: #F1F1F0;
+  background-color: #F1F1F1;
 }

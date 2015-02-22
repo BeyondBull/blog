@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>BeyondBull</title>
- <link href="/atom.xml" rel="self"/>
- <link href="/"/>
- <updated>2015-02-22T09:40:45-05:00</updated>
+ <link href="/blogatom.xml" rel="self"/>
+ <link href="/blog"/>
+ <updated>2015-02-22T10:49:38-05:00</updated>
  <id></id>
  <author>
    <name></name>
@@ -14,7 +14,7 @@
  
  <entry>
    <title>Introduction</title>
-   <link href="//2015/02/21/Introduction/"/>
+   <link href="/blog/2015/02/21/Introduction/"/>
    <updated>2015-02-21T00:00:00-05:00</updated>
    <id>/2015/02/21/Introduction</id>
    <content type="html">&lt;p&gt;What will this blog be?  To be honest I have no idea.  Over the last year I’ve have bin teaching my self to “program, develop, code…”  whatever that proper term for this is.  Now I’m ready to put my work out there for the world to see.  Currently my focus is one front end web development.  I’m hoping to document my journey as I develop my skills.  We’ll see what this becomes as time goes by.  For now I’m going to make an effort to publish one post per week.  Additionally I’ll likely be using the site as a playground for changing the design and layout of the site as my capabilities increase.  &lt;/p&gt;
@@ -23,7 +23,7 @@
  
  <entry>
    <title>Testing Textexpander</title>
-   <link href="//2015/01/23/Testing-textexpander/"/>
+   <link href="/blog/2015/01/23/Testing-textexpander/"/>
    <updated>2015-01-23T00:00:00-05:00</updated>
    <id>/2015/01/23/Testing-textexpander</id>
    <content type="html">&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.&lt;/p&gt;
@@ -33,7 +33,7 @@
  
  <entry>
    <title>Talking to Myself</title>
-   <link href="//2015/01/22/Talking-to-Myself/"/>
+   <link href="/blog/2015/01/22/Talking-to-Myself/"/>
    <updated>2015-01-22T00:00:00-05:00</updated>
    <id>/2015/01/22/Talking-to-Myself</id>
    <content type="html">&lt;p&gt;My job requires me to spend a large portion of my week driving around, it’s common for me to spend anywhere for 1-6 hours a day in my car.  I could only listen to the same chart topping songs repeated so much.  Even with a large iTunes collection l found that I craved intelligent conversation.  I began listening to sport talk radio.  I admit it doesn’t quite fit the intelligent part of my craving.  It dose however have a familiarity.  I was listening to the same conversations that I would have with friends or coworkers.  It was like sitting at a bar listening to two guys talk about last nights game I couldn’t hold back they’d say something and before I knew it I’m yelling at my radio “Why’d we trade for another pitcher it’s our offense that’s struggling, we need a bat”. &lt;/p&gt;
@@ -47,7 +47,7 @@ January 23, 2015&lt;/p&gt;
  
  <entry>
    <title>Introducing Poole</title>
-   <link href="//2014/01/02/introducing-poole/"/>
+   <link href="/blog/2014/01/02/introducing-poole/"/>
    <updated>2014-01-02T00:00:00-05:00</updated>
    <id>/2014/01/02/introducing-poole</id>
    <content type="html">&lt;p&gt;&lt;em&gt;The Strange Case of Dr. Jekyll and Mr. Hyde&lt;/em&gt; tells the story of a lawyer investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward Hyde. Chief among the novel’s supporting cast is a man by the name of Mr. Poole, Dr. Jekyll’s loyal butler.&lt;/p&gt;
@@ -94,7 +94,7 @@ January 23, 2015&lt;/p&gt;
  
  <entry>
    <title>Example content</title>
-   <link href="//2014/01/01/example-content/"/>
+   <link href="/blog/2014/01/01/example-content/"/>
    <updated>2014-01-01T00:00:00-05:00</updated>
    <id>/2014/01/01/example-content</id>
    <content type="html">&lt;div class=&quot;message&quot;&gt;
@@ -240,7 +240,7 @@ January 23, 2015&lt;/p&gt;
  
  <entry>
    <title>What's Jekyll?</title>
-   <link href="//2013/12/31/whats-jekyll/"/>
+   <link href="/blog/2013/12/31/whats-jekyll/"/>
    <updated>2013-12-31T00:00:00-05:00</updated>
    <id>/2013/12/31/whats-jekyll</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/jekyll/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
