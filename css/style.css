@@ -1,0 +1,142 @@
+/*  General
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------ */
+body {
+	background: #57534C;
+  color: #F1F1F0;
+}
+a {
+  color: #75A3BF;
+  text-decoration: none;
+}
+p {
+	font-family: 'Crimson Text', serif;
+	font-size: 1.3em;
+}
+main {
+	float: left;
+}
+
+
+
+/*  Header
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------ */
+#page-header {
+	background: #F1F1F0;
+	float: left;
+	width: 100%;	
+	margin-top: 13px;
+	border-bottom: #000 solid 3px;
+	border-top: #000 solid 3px;
+}
+.site-title {
+	text-align: center;
+	padding: 5px;
+	margin: 0;
+}
+.site-title a {
+	color: #57534C;
+	font-weight: 300;
+}
+.sub-page-nav h2 {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 5px;
+	font-weight: 100;
+}
+.sub-page-nav a {
+	color: #57534C;
+}
+.icon-nav {
+	background: #75A3BF;
+	border-top: #7e0909 solid 5px;
+	float: right;
+	width: 100%;
+}
+.icon-nav a {
+	float: right;
+	margin: 0 20px 0 0;
+}
+.social-icon {
+	width: 20px;
+	height: 20px;
+}
+@media screen and (min-width: 480px) {
+
+	.site-title {
+		text-align: left;
+		width: 40%;
+		float: left;
+		padding: 18px 10px 5px 10px;
+	}
+	.sub-page-nav {
+		float: right;
+		width: 40%;
+		text-align: right;
+		padding: 18px 10px 5px 10px;
+	}
+}
+
+/*  
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------ */
+.page,
+.post {
+  margin-bottom: 4em;
+  margin: 10%;
+}
+
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+  color: #303030;
+}
+.page-title,
+.post-title {
+  margin-top: 0;
+}
+
+/* Meta data line below post title */
+.post-date {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+}
+
+
+
+/*  Pagination
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------ */ 
+/* Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+ * there are no more previous or next posts to show.
+ */
+.pagination {
+  overflow: hidden; /* clearfix */
+  margin-left: -1rem;
+  margin-right: -1rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  color: #ccc;
+  text-align: center;
+}
+/* Pagination items can be `span`s or `a`s */
+.pagination-item {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+.pagination-item:first-child {
+  margin-bottom: -1px;
+}
+
+/* Only provide a hover state for linked pagination items */
+a.pagination-item:hover {
+  background-color: #F1F1F0;
+}
