@@ -1,25 +1,28 @@
+---
+layout: null
+---
+
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>BeyondBull.net</title>
- <link href="/atom.xml" rel="self"/>
- <link href="/"/>
- <updated>2015-02-21T20:48:20-05:00</updated>
- <id></id>
+ <title>{{ site.title }}</title>
+ <link href="{{ site.url }}{{ site.baseurl }}atom.xml" rel="self"/>
+ <link href="{{ site.url }}{{ site.baseurl }}"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>{{ site.url }}</id>
  <author>
-   <name>Cameron Bull</name>
-   <email></email>
+   <name>{{ site.author.name }}</name>
+   <email>{{ site.author.email }}</email>
  </author>
 
- 
+ {% for post in site.posts %}
  <entry>
-   <title>Introduction</title>
-   <link href="//2015/02/21/Introduction/"/>
-   <updated>2015-02-21T00:00:00-05:00</updated>
-   <id>/2015/02/21/Introduction</id>
-   <content type="html">&lt;p&gt;What will this blog be?  To be honest I have no idea.  Over the last year I’ve have bin teaching my self to “program, develop, code…”  whatever that proper term for this is.  Now I’m ready to put my work out there for the world to see.  Currently my focus is one front end web development.  I’m hoping to document my journey as I develop my skills.  We’ll see what this becomes as time goes by.  For now I’m going to make an effort to publish one post per week.  Additionally I’ll likely be using the site as a playground for changing the design and layout of the site as my capabilities increase.  &lt;/p&gt;
-</content>
+   <title>{{ post.title }}</title>
+   <link href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>{{ site.url }}{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
- 
+ {% endfor %}
 
 </feed>

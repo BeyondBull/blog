@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+
+    <div class="container content">
+			<header id="page-header">
+				<h1 class="site-title"><a href="{{ site.baseurl }}index.html">BeyondBull.net Blog</a></h1>
+				<nav class="icon-nav">
+					<a href="index.html"><img src="{{ site.baseurl }}img/twitter.png" alt="Twitter Logo" class="social-icon"></a>
+					<a href="index.html"><img src="{{ site.baseurl }}img/twitter.png" alt="Twitter Logo" class="social-icon"></a>
+					<a href="index.html"><img src="{{ site.baseurl }}img/mail.png" alt="Mail Logo" class="social-icon"></a>
+				</nav>
+			</header>
+      <main>
+        {{ content }}
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+  </body>
+</html>

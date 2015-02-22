@@ -1,0 +1,18 @@
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            BeyondBull
+tagline:          
+url:              
+paginate:         3
+baseurl:          beyondbull.net/blog
+author:
+  name:           
+  url:            
+  email:          
+# Custom vars
+version:          1.0.0
+github:
+  repo:           
