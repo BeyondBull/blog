@@ -7,7 +7,7 @@ title:            BeyondBull
 tagline:          
 url:              
 paginate:         3
-baseurl:          "/blog/"
+baseurl:          "/blog"
 author:
   name:           
   url:            
